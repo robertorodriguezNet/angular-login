@@ -2,13 +2,13 @@
 
 Aplicación para probar sistema de login.
 
-Estructura del sitio: 
+Estructura del sitio:
 .- Un página de inicio.
 .- Un página protegida mediante guard.
 .- La página de login
 
 Hay que crear las rutas y el menú.
-Añadimos el componente <app-router> en el html del módulo.
+Añadimos el componente "app-router" en el html del módulo.
 
 En principio, a la página protegida se accede sin problemas.
 Debemos añadir el guard.
@@ -17,3 +17,10 @@ Debemos añadir el guard.
 
 En el Guard especificamos las condiciones y las páginas de redirección.
 .- Para poder hacer uso de la navegación, debemos importar Router.
+
+Más módulos que hay que importar (desde app.module.ts):
+Para poder usar los servicios importamos HttpClientModule.
+Para el formulario: FormsModule.
+
+Necesitamos crear un servicio para hacer el login.
+.- En el servicio hay que importar "Observable" e inyectar el HttpClient (en el constructor).

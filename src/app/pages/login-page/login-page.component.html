@@ -1,1 +1,12 @@
-<p>login-page works!</p>
+<div class="content-container">
+  <h2>Página de login</h2>
+
+  <div>
+    <input [(ngModel)]="email" type="email" placeholder="eve.holt@reqres.in">
+    <br>
+    <input [(ngModel)]="password" type="password" placeholder="12345">
+    <br>
+    <button (click)="loginUser()">Acceder</button>
+  </div>
+
+</div>
