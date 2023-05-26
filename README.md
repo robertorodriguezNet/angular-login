@@ -1,27 +1,19 @@
 # AngularLogin
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.7.
+Aplicación para probar sistema de login.
 
-## Development server
+Estructura del sitio: 
+.- Un página de inicio.
+.- Un página protegida mediante guard.
+.- La página de login
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Hay que crear las rutas y el menú.
+Añadimos el componente <app-router> en el html del módulo.
 
-## Code scaffolding
+En principio, a la página protegida se accede sin problemas.
+Debemos añadir el guard.
+.- En el guard seleccionamos "canActivate" para especificar en qué condiciones se da permiso para activar la ruta.
+.- Ahora, en el routing-module, debemos especificar, en la ruta a la página restringida, que queremos asignar el guard, mediante canActivate.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+En el Guard especificamos las condiciones y las páginas de redirección.
+.- Para poder hacer uso de la navegación, debemos importar Router.
