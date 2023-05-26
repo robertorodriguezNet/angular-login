@@ -12,16 +12,12 @@ export class LoginPageComponent implements OnInit {
     email:string = "";
     password: string = "";
 
+    token: string | null = null;
+
   constructor(private router: Router, private authService: AuthService) {
 
     // Iniciamos e igualamos el token
-    let token = sessionStorage.getItem('token');
-
-
-    // En caso de que el token exista, navegamos al home
-    if(token){
-      this.router.navigate(['home']);
-    }
+    this.token = sessionStorage.getItem('token');
 
   }
 
@@ -37,8 +33,8 @@ export class LoginPageComponent implements OnInit {
 
         // Si en los parámetro devueltos viene token
         if(response.token){
+          console.log('Hay token');
           sessionStorage.setItem('token',response.token);
-          this.router.navigate(['protegida']);
         }
 
       },
@@ -46,5 +42,10 @@ export class LoginPageComponent implements OnInit {
         console.error(`Ha habido un error al hacer login (0): ${error}`),
       () => console.info('Petición de login terminada')
     );
+  }
+
+  logoutUser():void{
+    console.log('Cerrando sesión');
+    sessionStorage.removeItem('token');
   }
 }
